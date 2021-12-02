@@ -67,7 +67,7 @@ class Alert extends BaseComponent {
         throw new TypeError(`No method named "${config}"`)
       }
 
-      data[config](this)
+      data[config]()
     })
   }
 }

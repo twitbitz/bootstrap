@@ -6,15 +6,7 @@
  */
 
 import * as Popper from '@popperjs/core'
-import {
-  defineJQueryPlugin,
-  findShadowRoot,
-  getElement,
-  getUID,
-  isRTL,
-  noop,
-  typeCheckConfig
-} from './util/index'
+import { defineJQueryPlugin, findShadowRoot, getElement, getUID, isRTL, noop, typeCheckConfig } from './util/index'
 import { DefaultAllowlist } from './util/sanitizer'
 import EventHandler from './dom/event-handler'
 import Manipulator from './dom/manipulator'
@@ -623,7 +615,7 @@ class Tooltip extends BaseComponent {
         return
       }
 
-      if (typeof data[config] === 'undefined') {
+      if (data[config] === undefined || config.startsWith('_') || config === 'constructor') {
         throw new TypeError(`No method named "${config}"`)
       }
 
